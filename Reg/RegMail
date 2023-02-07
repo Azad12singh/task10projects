@@ -1,0 +1,95 @@
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Scanner;
+import java.util.*;
+import java.io.*;
+import javax.swing.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+        class Regestration1 {
+            String name;
+            String mail;
+
+            void value() {
+                JFrame fram = new JFrame("Login Form");
+                fram.setSize(500, 400);
+                fram.getContentPane().setBackground(Color.lightGray);
+                JLabel lable = new JLabel("<html><font color='5F236B'>Login Form</font></html>");
+                lable.setBounds(180, 20, 120, 30);
+                lable.setFont(new Font("Arial", Font.PLAIN, 20));
+                JLabel lable1 = new JLabel("Name");
+                lable1.setBounds(50, 70, 80, 20);
+                lable1.setFont(new Font("Arial", Font.PLAIN, 15));
+                JTextField tf = new JTextField("");
+                tf.setBounds(120, 70, 140, 20);
+                JLabel lable2 = new JLabel("Email");
+                lable2.setBounds(50, 120, 80, 20);
+                lable2.setFont(new Font("Arial", Font.PLAIN, 15));
+                JTextField tf1 = new JTextField("");
+                tf1.setBounds(120, 120, 140, 20);
+                JButton bt = new JButton("Login");
+                bt.setBounds(190, 170, 70, 20);
+                //bt.setBackground(Color.green);
+                JLabel jl = new JLabel(" ");
+                jl.setBounds(50, 200, 200, 20);
+                JLabel jl1 = new JLabel(" ");
+                jl1.setBounds(50, 230, 200, 20);
+                fram.add(lable);
+                fram.add(lable1);
+                fram.add(tf);
+                fram.add(lable2);
+                fram.add(tf1);
+                fram.add(bt);
+                fram.add(jl);
+                fram.add(jl1);
+                fram.setLayout(null);
+                fram.setVisible(true);
+                int m = 0;
+                // Scanner sc = new Scanner(System.in);
+                //System.out.println("Enter your name Here: ");
+
+                bt.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        name = tf.getText();
+                        mail = tf1.getText();
+                        // System.out.println(name);
+                        // System.out.println(mail);
+                        //System.out.println(name.length() >= 5 && !name.contains(" ") && mail.length() >= 8 && mail.contains("@") && mail.contains(".com"));
+                        if ((name.length() >= 5 && !name.contains(" ")) && (mail.length() >= 8 && mail.contains("@") && mail.contains(".com"))) {
+                            jl.setText("<html><font color='green'>your name is: " + name + "</font></html>");
+                            jl1.setText("<html><font color='green'>your mail add is: " + mail + "</font></html>");
+                            tf.setText(" ");
+                            tf1.setText(" ");
+                        }
+                           /* else {
+                                jl.setText("<html><font color='#AA1923'>invalid input:</font></html>");
+                                // System.out.println("Enter your name Here: ");
+                                name = tf.getText();
+                            }*/
+                        else {
+                            jl.setText("<html><font color='#AA1923'>invalid input</font></html>");
+
+                        }
+                    }
+                });
+                //System.out.println("Enter your Email Here: ");
+
+
+            }
+        }
+            public class RegMailGui {
+                public static void main(String[] args) {
+                        Regestration1 rg = new Regestration1();
+                        rg.value();
+
+                }
+
+            }
+
+
